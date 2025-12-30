@@ -1,9 +1,126 @@
-<html>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kurt Jensen | Software Engineer</title>
+    <meta
+      name="description"
+      content="Full-stack software engineer building web apps, databases, and AI automations."
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
 
-<body>
-  <h1>Kurt Jensen</h1>
-  <p>Welcome to my website!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
-</body>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <a class="logo" href="/">Kurt Jensen</a>
 
+        <nav class="nav">
+          <a href="/#projects">Projects</a>
+          <a href="/#about">About</a>
+          <a href="/#contact">Contact</a>
+          <a class="btn small" href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <h1>Full-stack engineer building web apps, databases, and AI automations.</h1>
+        <p class="sub">
+          I build practical products end-to-end — clean UI, solid backend, and real-world workflows.
+        </p>
+
+        <div class="cta">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn ghost" href="#contact">Contact</a>
+        </div>
+
+        <div class="proof">
+          <span>Software Engineer</span><span>•</span>
+          <span>M.S. AI (in progress)</span><span>•</span>
+          <span>Detroit, MI / Remote</span>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-title">
+          <h2>Projects</h2>
+          <p>Featured work across full-stack, databases, ML, and game dev.</p>
+        </div>
+
+        <div class="grid">
+          <!-- Placeholder cards for now -->
+          <article class="card">
+            <h3>Project Title</h3>
+            <p class="muted">Short one-liner about what it does.</p>
+            <p class="stack">Stack: React / Node / Postgres (example)</p>
+            <div class="links">
+              <a href="#" target="_blank" rel="noreferrer">Live</a>
+              <a href="#" target="_blank" rel="noreferrer">Repo</a>
+              <a href="/projects/" >Details</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Project Title</h3>
+            <p class="muted">Short one-liner about what it does.</p>
+            <p class="stack">Stack: Python / ML (example)</p>
+            <div class="links">
+              <a href="#" target="_blank" rel="noreferrer">Repo</a>
+              <a href="/projects/">Details</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Project Title</h3>
+            <p class="muted">Short one-liner about what it does.</p>
+            <p class="stack">Stack: Unity / C# (example)</p>
+            <div class="links">
+              <a href="#" target="_blank" rel="noreferrer">Video</a>
+              <a href="#" target="_blank" rel="noreferrer">Repo</a>
+              <a href="/projects/">Details</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="projects-cta">
+          <a class="btn ghost" href="/projects/">View all projects →</a>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="section-title">
+          <h2>About</h2>
+        </div>
+        <p>
+          I’m Kurt — a software engineer focused on full-stack development, databases, and automation.
+          I like building practical tools that save time, improve workflows, and feel great to use.
+        </p>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Best way to reach me:</p>
+        </div>
+
+        <div class="contact-links">
+          <a href="mailto:YOUR_EMAIL">YOUR_EMAIL</a>
+          <a href="https://www.linkedin.com/in/YOUR_LINK" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/KurtJJensen01" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <p class="muted">© <span id="year"></span> Kurt Jensen</p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
