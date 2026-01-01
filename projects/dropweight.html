@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DropWeight | Project Details</title>
+    <meta
+      name="description"
+      content="DropWeight is a fitness app for tracking progress and supporting consistent habits."
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <a class="logo" href="/">Kurt Jensen</a>
+        <nav class="nav">
+          <a href="/#projects">Projects</a>
+          <a href="/#about">About</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="section">
+        <div class="section-title">
+          <h2>DropWeight</h2>
+          <p class="muted">Fitness app for tracking progress and staying consistent.</p>
+        </div>
+
+        <div class="card" style="margin-top: 16px;">
+          <h3>What it is</h3>
+          <p>
+            DropWeight is a fitness platform designed to help users track progress and build consistent habits.
+          </p>
+
+          <h3 style="margin-top: 18px;">Highlights</h3>
+          <ul class="bullets">
+            <li>Progress tracking with a simple user experience</li>
+            <li>Designed for consistency and repeat daily use</li>
+            <li>Deployed product with a live demo environment</li>
+          </ul>
+
+          <div class="links" style="margin-top: 14px;">
+            <a class="btn small" href="https://dropweight.quest" target="_blank" rel="noreferrer">Open Live App</a>
+            <a class="btn small ghost" href="/#projects">Back to Projects</a>
+          </div>
+        </div>
+
+        <section class="section">
+          <div class="section-title">
+            <h2>Demo Access</h2>
+            <p class="muted">
+              Shared demo environment — please don’t enter real personal information.
+            </p>
+          </div>
+
+          <div class="card">
+            <p class="muted" style="margin-top: 0;">
+              Click to reveal the demo login.
+            </p>
+
+            <button class="btn small" id="revealBtn" type="button">
+              Reveal demo login
+            </button>
+
+            <div id="demoBox" style="display:none; margin-top: 14px;">
+              <p style="margin: 0 0 8px;"><strong>Demo login:</strong></p>
+              <p class="muted" style="margin: 0;">
+                Username: <code id="u"></code><br />
+                Password: <code id="p"></code>
+              </p>
+            </div>
+
+            <p class="muted" style="margin-top: 14px;">
+              Tip: If the demo account is busy or gets changed, email me and I’ll send a fresh login.
+            </p>
+
+            <div class="links" style="margin-top: 10px;">
+              <a class="btn small" href="mailto:YOUR_EMAIL?subject=DropWeight%20Demo%20Access" target="_blank" rel="noreferrer">
+                Request fresh demo login
+              </a>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <p class="muted">© <span id="year"></span> Kurt Jensen</p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // light friction: click-to-reveal (not real security)
+      const revealBtn = document.getElementById("revealBtn");
+      const demoBox = document.getElementById("demoBox");
+      const u = document.getElementById("u");
+      const p = document.getElementById("p");
+
+      revealBtn.addEventListener("click", () => {
+        demoBox.style.display = "block";
+        // Fill these in:
+        u.textContent = "asdfasdf";
+        p.textContent = "YOUR_PASSWORD_HERE";
+        revealBtn.textContent = "Demo login revealed";
+        revealBtn.disabled = true;
+      });
+    </script>
+  </body>
+</html>
