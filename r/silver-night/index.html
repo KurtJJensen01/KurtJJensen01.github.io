@@ -1,43 +1,183 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unity WebGL Player | Silver Night</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Silver Night | Kurt Jensen</title>
+    <meta
+    name="description"
+    content="Silver Night is a 2D Unity game featuring tight movement, collision systems, and gameplay logic — playable in browser via WebGL."
+    />
     <link rel="stylesheet" href="/gamestyles.css" />
   </head>
 
   <body>
-    <h1>Silver Night</h1>
-    <p>Desktop recommended for gameplay. Mobile supported for preview.</p>
-
-    <div class="game-shell">
-      <div class="game-frame">
-        <!-- Internal render resolution stays 1920x1080 -->
-        <canvas id="unity-canvas" width="1920" height="1080"></canvas>
+    <!-- Top bar -->
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="/">Kurt Jensen</a>
+        <div class="nav">
+          <a class="btn ghost small" href="/#projects">← Back to Portfolio</a>
+          <a class="btn small" href="#details">Details</a>
+          <a class="btn small ghost" href="#contact">Contact</a>
+        </div>
       </div>
     </div>
 
-    <!-- Add whatever else you want below -->
-    <h2>About</h2>
-    <p>Put your project write-up, screenshots, links, etc. here.</p>
+    <main class="container">
+      <!-- Hero -->
+      <section class="hero">
+        <h1>Silver Night</h1>
+        <p>
+          A 2D Unity game focused on tight player movement, collision systems, and gameplay logic —
+          deployed as WebGL so you can play it in-browser.
+        </p>
 
+        <div class="hero-actions">
+          <a class="btn" href="#play">Play below</a>
+          <!-- Update these links -->
+          <a class="btn ghost" href="YOUR_REPO_URL" target="_blank" rel="noreferrer">GitHub Repo</a>
+          <a class="btn ghost" href="YOUR_GAMEPLAY_VIDEO_URL" target="_blank" rel="noreferrer">Gameplay Video</a>
+        </div>
+
+        <div class="chips">
+          <span class="chip">Unity • C#</span>
+          <span class="chip">WebGL Build</span>
+          <span class="chip">Systems + Gameplay</span>
+        </div>
+      </section>
+
+      <!-- Main layout -->
+      <section class="layout" id="play">
+        <!-- Game panel -->
+        <div class="panel">
+          <div class="panel-header">
+            <div class="title">
+              <span>Play</span>
+              <span class="hint">Desktop recommended • Mobile preview supported</span>
+            </div>
+
+            <button class="btn small ghost" id="touchToggle" type="button">
+              Enable touch
+            </button>
+          </div>
+
+          <div class="game-shell">
+            <div class="game-frame">
+              <!-- Internal render resolution stays 1920x1080 -->
+              <canvas id="unity-canvas" width="1920" height="1080" data-touch="off"></canvas>
+
+              <div class="loading" id="loading">
+                <div class="box">
+                  <div style="font-weight:700; margin-bottom:6px;">Loading Silver Night…</div>
+                  <div style="color: var(--muted); font-size: 13px;">
+                    If it takes a while, your browser may be compiling WebAssembly.
+                  </div>
+                  <div class="bar"><div id="barFill"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details panel -->
+        <aside class="panel" id="details">
+          <div class="section">
+            <h2>What I built</h2>
+            <ul class="bullets">
+              <li>Player movement, collisions, and game-state logic</li>
+              <li>Core gameplay loop + level/scene flow</li>
+              <li>WebGL deployment so it’s playable in-browser</li>
+            </ul>
+
+            <div class="kv" style="margin-top: 14px;">
+              <strong>Role</strong><span>Solo dev</span>
+              <strong>Tech</strong><span>Unity, C#</span>
+              <strong>Build</strong><span>WebGL</span>
+              <strong>Focus</strong><span>Mechanics, physics, game logic</span>
+            </div>
+
+            <h2 style="margin-top: 18px;">Controls</h2>
+            <p>List your real controls here (example):</p>
+            <ul class="bullets">
+              <li>Move: WASD / Arrow keys</li>
+              <li>Jump: Space</li>
+              <li>Attack: Left click</li>
+            </ul>
+
+            <h2 style="margin-top: 18px;" id="contact">Links</h2>
+            <div class="nav" style="justify-content: flex-start; gap: 10px;">
+              <a class="btn small" href="YOUR_REPO_URL" target="_blank" rel="noreferrer">Repo</a>
+              <a class="btn small ghost" href="YOUR_GAMEPLAY_VIDEO_URL" target="_blank" rel="noreferrer">Video</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <div class="footer">
+        © <span id="year"></span> Kurt Jensen
+      </div>
+    </main>
+
+    <!-- Unity loader -->
     <script src="Build/Web html Build.loader.js"></script>
     <script>
-      createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/Web html Build.data",
-        frameworkUrl: "Build/Web html Build.framework.js",
-        codeUrl: "Build/Web html Build.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "Hockeykurt",
-        productName: "Silver Night",
-        productVersion: "1.0",
+      document.getElementById("year").textContent = new Date().getFullYear();
 
-        // KEY: keep render at 1920x1080 even though CSS may scale it smaller
-        matchWebGLToCanvasSize: false,
-        devicePixelRatio: 1
+      // Mobile touch toggle: keep your default behavior, but let user enable interaction.
+      const canvas = document.getElementById("unity-canvas");
+      const toggleBtn = document.getElementById("touchToggle");
+
+      function setTouch(on) {
+        canvas.setAttribute("data-touch", on ? "on" : "off");
+        toggleBtn.textContent = on ? "Disable touch" : "Enable touch";
+      }
+
+      // default: off
+      let touchOn = false;
+      setTouch(touchOn);
+
+      toggleBtn.addEventListener("click", () => {
+        touchOn = !touchOn;
+        setTouch(touchOn);
       });
+
+      // Loading UI
+      const loading = document.getElementById("loading");
+      const barFill = document.getElementById("barFill");
+
+      createUnityInstance(
+        canvas,
+        {
+          dataUrl: "Build/Web html Build.data",
+          frameworkUrl: "Build/Web html Build.framework.js",
+          codeUrl: "Build/Web html Build.wasm",
+          streamingAssetsUrl: "StreamingAssets",
+          companyName: "Hockeykurt",
+          productName: "Silver Night",
+          productVersion: "1.0",
+
+          // Keep render at 1920x1080 even though CSS may scale it smaller
+          matchWebGLToCanvasSize: false,
+          devicePixelRatio: 1,
+        },
+        (progress) => {
+          // progress is 0..1
+          barFill.style.width = Math.round(progress * 100) + "%";
+        }
+      )
+        .then(() => {
+          loading.style.display = "none";
+        })
+        .catch((err) => {
+          loading.innerHTML =
+            '<div class="box"><div style="font-weight:700; margin-bottom:6px;">Failed to load the game</div>' +
+            '<div style="color: var(--muted); font-size: 13px; margin-bottom:10px;">Try refreshing, or test in Chrome/Edge on desktop.</div>' +
+            "<pre style='white-space:pre-wrap; font-size:12px; color: var(--muted); margin:0;'>" +
+            String(err) +
+            "</pre></div>";
+        });
     </script>
   </body>
 </html>
