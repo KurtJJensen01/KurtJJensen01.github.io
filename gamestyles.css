@@ -278,3 +278,90 @@ a:hover {
 @media (max-width: 768px) {
     #unity-canvas[data-touch="off"] { pointer-events: none; }
 }
+
+.game-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #231F20;
+    overflow: hidden;
+
+    /* NEW: center the canvas so it can "contain" in fullscreen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Default: fills the frame normally */
+#unity-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #231F20;
+}
+
+/* NEW: Fullscreen mode — fit inside viewport without stretch */
+body.is-fs {
+    padding: 0;
+}
+
+/* hide page text in fullscreen so nothing cuts off the game */
+body.is-fs h1,
+body.is-fs p,
+body.is-fs h2 {
+    display: none;
+}
+
+/* Make the wrapper truly fill the screen */
+body.is-fs .game-shell {
+    max-width: none;
+    margin: 0;
+}
+
+body.is-fs .game-frame {
+    width: 100vw;
+    height: 100vh;          /* fallback */
+    height: 100dvh;         /* modern browsers handle browser UI better */
+    aspect-ratio: auto;
+}
+
+/* This is the key: keep aspect ratio + "contain" inside fullscreen */
+body.is-fs #unity-canvas {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Show a helpful message overlay on mobile */
+.mobile-overlay {
+    display: none;
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    padding: 16px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-overlay .box {
+    max-width: 520px;
+    background: rgba(11, 12, 16, 0.75);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.mobile-overlay p {
+    margin: 8px 0 0;
+    color: rgba(255,255,255,0.75);
+    font-size: 14px;
+}
+
+/* On mobile: disable interaction + show overlay */
+@media (max-width: 768px) {
+    #unity-canvas { pointer-events: none; }
+    .mobile-overlay { display: flex; }
+}

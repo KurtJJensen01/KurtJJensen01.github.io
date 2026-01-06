@@ -63,11 +63,16 @@
               Enable touch
             </button>
           </div>
+          <div style="margin: 10px 0 14px;">
+            <button id="fs-btn" style="padding:10px 14px; border-radius:10px; border:0; cursor:pointer;">
+              Full screen
+            </button>
+          </div>
 
           <div class="game-shell">
             <div class="game-frame">
               <!-- Internal render resolution stays 1920x1080 -->
-              <canvas id="unity-canvas" width="1920" height="1080" data-touch="off"></canvas>
+              <canvas id="unity-canvas" width="1920" height="1080"></canvas>
 
               <div class="loading" id="loading">
                 <div class="box">
@@ -76,6 +81,18 @@
                     If it takes a while, your browser may be compiling WebAssembly.
                   </div>
                   <div class="bar"><div id="barFill"></div></div>
+                </div>
+              </div>
+
+              <div class="mobile-overlay" aria-hidden="true">
+                <div class="box">
+                  <div style="font-weight:700;">Keyboard required</div>
+                  <p>Play on desktop for full gameplay.</p>
+                  <div style="margin-top:10px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+                    <a class="btn small" href="YOUR_GAMEPLAY_VIDEO_URL" target="_blank" rel="noreferrer">Watch Gameplay</a>
+                    <!-- Optional -->
+                    <!-- <a class="btn small ghost" href="YOUR_DOWNLOAD_URL" target="_blank" rel="noreferrer">Download (Windows)</a> -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -178,6 +195,22 @@
             "<pre style='white-space:pre-wrap; font-size:12px; color: var(--muted); margin:0;'>" +
             String(err) +
             "</pre></div>";
+        });
+        const frameEl = document.querySelector(".game-frame");
+        const fsBtn = document.getElementById("fs-btn");
+
+        fsBtn.addEventListener("click", async () => {
+          if (!document.fullscreenElement) {
+            await frameEl.requestFullscreen();
+          } else {
+            await document.exitFullscreen();
+          }
+        });
+
+        document.addEventListener("fullscreenchange", () => {
+          const isFs = !!document.fullscreenElement;
+          document.body.classList.toggle("is-fs", isFs);
+          fsBtn.textContent = isFs ? "Exit full screen" : "Full screen";
         });
     </script>
   </body>
