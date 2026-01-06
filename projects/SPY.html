@@ -1,188 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SPY Next-Day Direction Prediction | Kurt Jensen</title>
-    <meta
-      name="description"
-      content="Predict whether SPY closes higher the next trading day using Logistic Regression, KNN, and a Decision Tree with simple technical features."
-    />
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-
-  <body>
-    <!-- Top bar -->
-    <div class="topbar">
-      <div class="container topbar-inner">
-        <a class="brand" href="/">Kurt Jensen</a>
-        <div class="nav">
-          <a class="btn ghost small" href="/#projects">← Back to Portfolio</a>
-          <a
-            class="btn small"
-            href="https://github.com/KurtJJensen01/spy-logreg-knn-tree-baseline"
-            target="_blank"
-            rel="noreferrer"
-            >Repo</a
-          >
-          <a
-            class="btn small ghost"
-            href="https://github.com/KurtJJensen01/spy-logreg-knn-tree-baseline/blob/main/Project%20Report.pdf"
-            target="_blank"
-            rel="noreferrer"
-            >Report</a
-          >
-        </div>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>SPY Next-Day Direction Prediction | Kurt Jensen</title>
+      <meta
+         name="description"
+         content="Predict whether SPY closes higher the next trading day using Logistic Regression, KNN, and a Decision Tree with simple technical features."
+         />
+      <link rel="stylesheet" href="/styles.css" />
+   </head>
+   <body>
+      <!-- Top bar -->
+      <div class="topbar">
+         <div class="container topbar-inner">
+            <a class="brand" href="/">Kurt Jensen</a>
+            <div class="nav">
+               <a class="btn small" href="/#projects">← Back to Portfolio</a>
+               <a class="btn small ghost" href="https://github.com/KurtJJensen01/spy-logreg-knn-tree-baseline" target="_blank" rel="noreferrer">Repo</a>
+               <a class="btn small ghost" href="/Project Report.pdf" target="_blank" rel="noreferrer">Report</a>
+            </div>
+         </div>
       </div>
-    </div>
-
-    <main class="container">
-      <!-- Hero -->
-      <section class="hero">
-        <h1>SPY Next-Day Direction Prediction</h1>
-        <p>
-          Predict whether the SPDR S&amp;P 500 ETF (SPY) closes higher the next trading day using
-          classic ML models and lightweight technical features.
-        </p>
-
-        <div class="hero-actions">
-          <a
-            class="btn"
-            href="https://github.com/KurtJJensen01/spy-logreg-knn-tree-baseline"
-            target="_blank"
-            rel="noreferrer"
-            >Open Repo</a
-          >
-          <a
-            class="btn ghost"
-            href="https://github.com/KurtJJensen01/spy-logreg-knn-tree-baseline/blob/main/Project%20Report.pdf"
-            target="_blank"
-            rel="noreferrer"
-            >Read Report (PDF)</a
-          >
-        </div>
-
-        <div class="chips">
-          <span class="chip">Python</span>
-          <span class="chip">pandas</span>
-          <span class="chip">scikit-learn</span>
-          <span class="chip">matplotlib</span>
-          <span class="chip">Time-series split</span>
-        </div>
-      </section>
-
-      <!-- Main layout -->
-      <section class="layout">
-        <!-- Left panel -->
-        <div class="panel">
-          <div class="panel-header">
-            <div class="title">
-              <span>Overview</span>
-              <span class="hint">Classic baselines • clean evaluation • educational</span>
-            </div>
-          </div>
-
-          <div class="section">
-            <h2 style="margin: 0 0 10px;">What this project does</h2>
-            <p class="muted" style="margin-top: 0;">
-              The script builds a simple pipeline that downloads SPY OHLCV data, engineers a small
-              feature set (returns, SMAs, rolling volatility), then trains Logistic Regression, KNN,
-              and a Decision Tree — and compares them against a baseline (“always up”).
+      <main class="container">
+         <!-- Hero -->
+         <section class="hero">
+            <h1>SPY Next-Day Direction Prediction</h1>
+            <p>
+               Predict whether the SPDR S&amp;P 500 ETF (SPY) closes higher the next trading day using
+               classic ML models and lightweight technical features.
             </p>
-
-            <h2 style="margin-top: 18px;">Models + approach</h2>
-            <ul class="bullets">
-              <li><strong>Logistic Regression</strong> (with scaling)</li>
-              <li><strong>K-Nearest Neighbors</strong> (with scaling)</li>
-              <li><strong>Decision Tree</strong></li>
-              <li><strong>Baseline</strong>: always predict “up”</li>
-              <li><strong>Split</strong>: chronological train/val/test (70% / 10% / 20%)</li>
-            </ul>
-
-            <h2 style="margin-top: 18px;">How to run</h2>
-            <pre class="code"><code>pip install kagglehub pandas numpy scikit-learn matplotlib
+            <div class="hero-actions">
+               <a class="btn" href="https://github.com/KurtJJensen01/spy-logreg-knn-tree-baseline" target="_blank" rel="noreferrer" >Open Repo</a>
+               <a class="btn ghost" href="/Project Report.pdf" target="_blank" rel="noreferrer" >Read Report (PDF)</a>
+            </div>
+            <div class="chips">
+               <span class="chip">Python</span>
+               <span class="chip">pandas</span>
+               <span class="chip">scikit-learn</span>
+               <span class="chip">matplotlib</span>
+               <span class="chip">Time-series split</span>
+            </div>
+         </section>
+         <!-- Main layout -->
+         <section class="layout">
+            <!-- Left panel -->
+            <div class="panel">
+               <div class="panel-header">
+                  <div class="title">
+                     <span>Overview</span>
+                     <span class="hint">Classic baselines • clean evaluation • educational</span>
+                  </div>
+               </div>
+               <div class="section">
+                  <h2 style="margin: 0 0 10px;">What this project does</h2>
+                  <p class="muted" style="margin-top: 0;">
+                     The script builds a simple pipeline that downloads SPY OHLCV data, engineers a small
+                     feature set (returns, SMAs, rolling volatility), then trains Logistic Regression, KNN,
+                     and a Decision Tree — and compares them against a baseline (“always up”).
+                  </p>
+                  <h2 style="margin-top: 18px;">Models + approach</h2>
+                  <ul class="bullets">
+                     <li><strong>Logistic Regression</strong> (with scaling)</li>
+                     <li><strong>K-Nearest Neighbors</strong> (with scaling)</li>
+                     <li><strong>Decision Tree</strong></li>
+                     <li><strong>Baseline</strong>: always predict “up”</li>
+                     <li><strong>Split</strong>: chronological train/val/test (70% / 10% / 20%)</li>
+                  </ul>
+                  <h2 style="margin-top: 18px;">How to run</h2>
+                  <pre class="code"><code>pip install kagglehub pandas numpy scikit-learn matplotlib
 python main.py</code></pre>
-
-            <p class="muted" style="margin-top: 12px;">
-              Note: This is an educational project — not financial advice.
-            </p>
-
-            <h2 style="margin-top: 18px;">Outputs</h2>
-            <ul class="bullets">
-              <li>Distribution plot of daily log returns</li>
-              <li>F1 score comparison across models</li>
-              <li>“Helper output” prediction for the most recent day</li>
-            </ul>
-
-            <!-- Optional: if you copy images into your portfolio repo under /assets/spy/ -->
-            <!--
-            <div style="margin-top: 14px; display: grid; gap: 12px;">
-              <img class="media" src="/assets/spy/Figure_1.png" alt="Distribution of daily log returns" />
-              <img class="media" src="/assets/spy/Figure_2.png" alt="Model F1 score comparison" />
+                  <p class="muted" style="margin-top: 12px;">
+                     Note: This is an educational project — not financial advice.
+                  </p>
+                  <h2 style="margin-top: 18px;">Outputs</h2>
+                  <ul class="bullets">
+                     <li>Distribution plot of daily log returns</li>
+                     <li>F1 score comparison across models</li>
+                     <li>“Helper output” prediction for the most recent day</li>
+                  </ul>
+                  <!-- Optional: if you copy images into your portfolio repo under /assets/spy/ -->
+                  <!--
+                     <div style="margin-top: 14px; display: grid; gap: 12px;">
+                       <img class="media" src="/assets/spy/Figure_1.png" alt="Distribution of daily log returns" />
+                       <img class="media" src="/assets/spy/Figure_2.png" alt="Model F1 score comparison" />
+                     </div>
+                     -->
+               </div>
             </div>
-            -->
-          </div>
-        </div>
-
-        <!-- Right panel -->
-        <aside class="panel">
-          <div class="panel-header">
-            <div class="title">
-              <span>Details</span>
-              <span class="hint">Quick specs</span>
-            </div>
-          </div>
-
-          <div class="section">
-            <div class="spec">
-              <div class="spec-row">
-                <div class="spec-label">Type</div>
-                <div class="spec-value">Machine Learning • Classification</div>
-              </div>
-              <div class="spec-row">
-                <div class="spec-label">Data</div>
-                <div class="spec-value">SPY historical OHLCV (via Kaggle)</div>
-              </div>
-              <div class="spec-row">
-                <div class="spec-label">Metric</div>
-                <div class="spec-value">Accuracy + F1 (Up class)</div>
-              </div>
-              <div class="spec-row">
-                <div class="spec-label">Focus</div>
-                <div class="spec-value">Baselines, feature engineering, time-series hygiene</div>
-              </div>
-            </div>
-
-            <div class="link-row" style="margin-top: 14px;">
-              <a
-                class="btn small"
-                href="https://github.com/KurtJJensen01/spy-logreg-knn-tree-baseline"
-                target="_blank"
-                rel="noreferrer"
-                >Repo</a
-              >
-              <a
-                class="btn small ghost"
-                href="https://github.com/KurtJJensen01/spy-logreg-knn-tree-baseline/blob/main/Project%20Report.pdf"
-                target="_blank"
-                rel="noreferrer"
-                >Report (PDF)</a
-              >
-            </div>
-
-            <p class="muted" style="margin-top: 14px;">
-              Want this to be even more “portfolio-ready”? Next step would be adding a tiny Results
-              section with 2 images + 3 bullet takeaways.
-            </p>
-          </div>
-        </aside>
-      </section>
-
-      <div class="footer">© <span id="year"></span> Kurt Jensen</div>
-    </main>
-
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-  </body>
+            <!-- Right panel -->
+            <aside class="panel">
+               <div class="panel-header">
+                  <div class="title">
+                     <span>Details</span>
+                     <span class="hint">Quick specs</span>
+                  </div>
+               </div>
+               <div class="section"> <!--This section needs to be tweeked-->
+                  <div class="spec">
+                     <div class="spec-row">
+                        <div class="spec-label">Type</div>
+                        <div class="spec-value">Machine Learning • Classification</div>
+                     </div>
+                     <div class="spec-row">
+                        <div class="spec-label">Data</div>
+                        <div class="spec-value">SPY historical OHLCV (via Kaggle)</div>
+                     </div>
+                     <div class="spec-row">
+                        <div class="spec-label">Metric</div>
+                        <div class="spec-value">Accuracy + F1 (Up class)</div>
+                     </div>
+                     <div class="spec-row">
+                        <div class="spec-label">Focus</div>
+                        <div class="spec-value">Baselines, feature engineering, time-series hygiene</div>
+                     </div>
+                  </div>
+                  <!--
+                  <p class="muted" style="margin-top: 14px;">
+                     Want this to be even more “portfolio-ready”? Next step would be adding a tiny Results
+                     section with 2 images + 3 bullet takeaways.
+                  </p>
+                -->
+               </div>
+            </aside>
+         </section>
+         <div class="footer">© <span id="year"></span> Kurt Jensen</div>
+      </main>
+      <script>
+         document.getElementById("year").textContent = new Date().getFullYear();
+      </script>
+   </body>
 </html>
