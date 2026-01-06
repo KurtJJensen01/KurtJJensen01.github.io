@@ -19,14 +19,13 @@
           <div class="nav">
             <a class="btn ghost small" href="/#projects">← Back to Portfolio</a>
             <a class="btn small" href="/r/work-app/" target="_blank" rel="noreferrer">Live</a>
-            <a class="btn small ghost" href="#">Contact</a>
+            <a class="btn small" href="#">Contact</a>
           </div>
         </div>
       </div>
     </header>
 
     <main class="container">
-      <!-- Hero -->
       <section class="hero">
         <h1>DropWeight</h1>
         <p>
@@ -37,8 +36,6 @@
         <div class="hero-actions">
           <a class="btn" href="https://dropweight.quest" target="_blank" rel="noreferrer">Open Live App</a>
           <a class="btn ghost" href="#demo">Demo Access</a>
-          <!-- If repo is public, put it here OR in header (not both) -->
-          <!-- <a class="btn ghost" href="YOUR_REPO_URL" target="_blank" rel="noreferrer">Repo</a> -->
         </div>
 
         <div class="chips">
@@ -48,9 +45,7 @@
         </div>
       </section>
 
-      <!-- Main layout (matches Silver Night vibe) -->
       <section class="layout">
-        <!-- Left: overview + demo -->
         <div class="panel">
           <div class="panel-header">
             <div class="title">
@@ -107,7 +102,6 @@
           </div>
         </div>
 
-        <!-- Right: “small details” spec (same idea as Silver Night) -->
         <aside class="panel details" id="details">
           <div class="section">
             <h2>Project Specs</h2>
@@ -126,26 +120,11 @@
                 <div class="spec-value">Shared demo login (click-to-reveal)</div>
               </div>
 
-              <!-- If you can share real stack, put it here -->
               <div class="spec-row">
                 <div class="spec-label">Stack</div>
                 <div class="spec-value">Add your actual stack here</div>
               </div>
             </div>
-
-            <h2 style="margin-top: 22px;">Links</h2>
-            <div class="link-row">
-              <a class="btn small" href="https://dropweight.quest" target="_blank" rel="noreferrer">Live</a>
-
-              <!-- Use Repo only if public -->
-              <!-- <a class="btn small ghost" href="YOUR_REPO_URL" target="_blank" rel="noreferrer">Repo</a> -->
-              <a class="btn small ghost" href="/#projects">Portfolio</a>
-            </div>
-
-            <!-- Optional note if repo is private -->
-            <p class="muted" style="margin-top: 12px;">
-              Repo is private (work project). Available to discuss on request.
-            </p>
           </div>
         </aside>
       </section>
@@ -156,7 +135,6 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // click-to-reveal (friction, not security)
       const revealBtn = document.getElementById("revealBtn");
       const demoBox = document.getElementById("demoBox");
       const u = document.getElementById("u");
