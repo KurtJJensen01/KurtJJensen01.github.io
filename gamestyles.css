@@ -319,6 +319,7 @@ body.is-fs #unity-canvas {
 /* Bullets spacing */
 #details.details .bullets {
   margin: 10px 0 0 18px;
+  padding-left: 25px;
 }
 
 #details.details .bullets li {
