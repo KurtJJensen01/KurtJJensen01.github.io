@@ -301,22 +301,24 @@ body.is-fs #unity-canvas {
   font-size: 13px;
 }
 
-/* Key/Value list (Role, Tech, Build, Focus) */
+/* Key/Value “spec sheet” */
 .kv {
-  display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 10px 14px;
-  margin-top: 14px;
-  padding-top: 14px;
+  margin: 14px 0 0;
+  padding: 14px 0 0;
   border-top: 1px solid var(--border);
 }
 
-.kv strong,
-.kv span {
-  display: block;
+/* reset default DL spacing */
+.kv, .kv dt, .kv dd { margin: 0; padding: 0; }
+
+.kv-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  padding: 7px 0;
 }
 
-.kv strong {
+.kv dt {
   color: var(--muted);
   font-weight: 700;
   font-size: 12px;
@@ -324,14 +326,14 @@ body.is-fs #unity-canvas {
   text-transform: uppercase;
 }
 
-.kv span {
+.kv dd {
   color: var(--text);
   font-size: 14px;
 }
 
 /* Details panel typography */
 #details .section {
-  padding: 18px;
+  padding: 22px;
 }
 
 #details h2 {
