@@ -13,53 +13,69 @@
 
   <body>
     <header class="header">
-      <div class="container header-inner">
-        <a class="logo" href="/">Kurt Jensen</a>
-        <nav class="nav">
-          <a href="/#projects">Projects</a>
-          <a href="/#about">About</a>
-          <a href="/#contact">Contact</a>
-        </nav>
+      <div class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="/">Kurt Jensen</a>
+          <div class="nav">
+            <a class="btn ghost small" href="/#projects">← Back to Portfolio</a>
+            <a class="btn small" href="/r/work-app/" target="_blank" rel="noreferrer">Live</a>
+            <a class="btn small ghost" href="#">Contact</a>
+          </div>
+        </div>
       </div>
     </header>
 
     <main class="container">
-      <section class="section">
-        <div class="section-title">
-          <h2>DropWeight</h2>
-          <p class="muted">Fitness app for tracking progress and staying consistent.</p>
+      <!-- Hero -->
+      <section class="hero">
+        <h1>DropWeight</h1>
+        <p>
+          Fitness app for tracking progress and staying consistent — with a shared demo environment
+          you can test quickly.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn" href="https://dropweight.quest" target="_blank" rel="noreferrer">Open Live App</a>
+          <a class="btn ghost" href="#demo">Demo Access</a>
+          <!-- If repo is public, put it here OR in header (not both) -->
+          <!-- <a class="btn ghost" href="YOUR_REPO_URL" target="_blank" rel="noreferrer">Repo</a> -->
         </div>
 
-        <div class="card" style="margin-top: 16px;">
-          <h3>What it is</h3>
-          <p>
-            DropWeight is a fitness platform designed to help users track progress and build consistent habits.
-          </p>
+        <div class="chips">
+          <span class="chip">Fitness</span>
+          <span class="chip">Progress tracking</span>
+          <span class="chip">Deployed app</span>
+        </div>
+      </section>
 
-          <h3 style="margin-top: 18px;">Highlights</h3>
-          <ul class="bullets">
-            <li>Progress tracking with a simple user experience</li>
-            <li>Designed for consistency and repeat daily use</li>
-            <li>Deployed product with a live demo environment</li>
-          </ul>
-
-          <div class="links" style="margin-top: 14px;">
-            <a class="btn small" href="https://dropweight.quest" target="_blank" rel="noreferrer">Open Live App</a>
-            <a class="btn small ghost" href="/#projects">Back to Projects</a>
+      <!-- Main layout (matches Silver Night vibe) -->
+      <section class="layout">
+        <!-- Left: overview + demo -->
+        <div class="panel">
+          <div class="panel-header">
+            <div class="title">
+              <span>Overview</span>
+              <span class="hint">Quick summary + demo</span>
+            </div>
           </div>
-        </div>
 
-        <section class="section">
-          <div class="section-title">
-            <h2>Demo Access</h2>
+          <div class="section">
+            <h2>What it is</h2>
+            <p>
+              DropWeight is a fitness platform designed to help users track progress and build
+              consistent habits with a clean, repeatable workflow.
+            </p>
+
+            <h2>Highlights</h2>
+            <ul class="bullets">
+              <li>Progress tracking with a simple user experience</li>
+              <li>Built for consistency and repeat daily use</li>
+              <li>Deployed product with a live demo environment</li>
+            </ul>
+
+            <h2 id="demo">Demo Access</h2>
             <p class="muted">
               Shared demo environment — please don’t enter real personal information.
-            </p>
-          </div>
-
-          <div class="card">
-            <p class="muted" style="margin-top: 0;">
-              Click to reveal the demo login.
             </p>
 
             <button class="btn small" id="revealBtn" type="button">
@@ -75,27 +91,72 @@
             </div>
 
             <p class="muted" style="margin-top: 14px;">
-              Tip: If the demo account is busy or gets changed, email me and I’ll send a fresh login.
+              If the demo account is busy or gets changed, email me and I’ll send a fresh login.
             </p>
 
-            <div class="links" style="margin-top: 10px;">
-              <a class="btn small" href="mailto:KurtJJensen01@gmail.com?subject=DropWeight%20Demo%20Access" target="_blank" rel="noreferrer">
+            <div class="link-row" id="contact">
+              <a
+                class="btn small"
+                href="mailto:KurtJJensen01@gmail.com?subject=DropWeight%20Demo%20Access"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Request fresh demo login
               </a>
             </div>
           </div>
-        </section>
-      </section>
-    </main>
+        </div>
 
-    <footer class="container footer">
-      <p class="muted">© <span id="year"></span> Kurt Jensen</p>
-    </footer>
+        <!-- Right: “small details” spec (same idea as Silver Night) -->
+        <aside class="panel details" id="details">
+          <div class="section">
+            <h2>Project Specs</h2>
+
+            <div class="spec">
+              <div class="spec-row">
+                <div class="spec-label">Type</div>
+                <div class="spec-value">Web app</div>
+              </div>
+              <div class="spec-row">
+                <div class="spec-label">Focus</div>
+                <div class="spec-value">Progress tracking + consistency</div>
+              </div>
+              <div class="spec-row">
+                <div class="spec-label">Access</div>
+                <div class="spec-value">Shared demo login (click-to-reveal)</div>
+              </div>
+
+              <!-- If you can share real stack, put it here -->
+              <div class="spec-row">
+                <div class="spec-label">Stack</div>
+                <div class="spec-value">Add your actual stack here</div>
+              </div>
+            </div>
+
+            <h2 style="margin-top: 22px;">Links</h2>
+            <div class="link-row">
+              <a class="btn small" href="https://dropweight.quest" target="_blank" rel="noreferrer">Live</a>
+
+              <!-- Use Repo only if public -->
+              <!-- <a class="btn small ghost" href="YOUR_REPO_URL" target="_blank" rel="noreferrer">Repo</a> -->
+              <a class="btn small ghost" href="/#projects">Portfolio</a>
+            </div>
+
+            <!-- Optional note if repo is private -->
+            <p class="muted" style="margin-top: 12px;">
+              Repo is private (work project). Available to discuss on request.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <div class="footer">© <span id="year"></span> Kurt Jensen</div>
+    </main>
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // light friction: click-to-reveal (not real security)
+      // click-to-reveal (friction, not security)
       const revealBtn = document.getElementById("revealBtn");
       const demoBox = document.getElementById("demoBox");
       const u = document.getElementById("u");
@@ -103,7 +164,6 @@
 
       revealBtn.addEventListener("click", () => {
         demoBox.style.display = "block";
-        // Fill these in:
         u.textContent = "test";
         p.textContent = "asdfasdf";
         revealBtn.textContent = "Demo login revealed";
