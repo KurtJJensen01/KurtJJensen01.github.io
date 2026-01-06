@@ -1,6 +1,3 @@
-/* =========================================================
-   GLOBAL THEME (from gamestyles.css)
-   ========================================================= */
 :root {
   --bg: #0b0c10;
   --panel: rgba(255, 255, 255, 0.05);
@@ -31,12 +28,9 @@ a:hover { opacity: 0.9; }
 .container {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 24px; /* keep your home spacing */
+  padding: 24px;
 }
 
-/* =========================================================
-   TOP NAV (supports BOTH home .header and game .topbar)
-   ========================================================= */
 :is(.header, .topbar) {
   position: sticky;
   top: 0;
@@ -63,15 +57,12 @@ a:hover { opacity: 0.9; }
   justify-content: flex-end;
 }
 
-/* =========================================================
-   BUTTONS (merged; keeps home sizing, game polish)
-   ========================================================= */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 16px; /* home layout feel */
+  padding: 12px 16px; 
   border-radius: 999px;
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.10);
@@ -83,9 +74,6 @@ a:hover { opacity: 0.9; }
 .btn.ghost { background: transparent; box-shadow: none; }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-/* =========================================================
-   HERO (merged: supports home .sub/.cta/.proof + game .hero-actions)
-   ========================================================= */
 .hero { padding: 44px 0 18px; }
 .hero h1 { font-size: clamp(30px, 4vw, 46px); margin: 0 0 10px; }
 .hero p { margin: 0 0 16px; color: var(--muted); max-width: 860px; }
@@ -111,10 +99,7 @@ a:hover { opacity: 0.9; }
   border-radius: 999px;
 }
 
-/* =========================================================
-   HOME PAGE LAYOUT (from your styles.css)
-   ========================================================= */
-.section { padding: 36px 0; }              /* page sections */
+.section { padding: 36px 0; }              
 .section-title h2 { margin: 0; }
 .section-title p { margin: 6px 0 0; color: var(--muted); }
 
@@ -147,9 +132,6 @@ a:hover { opacity: 0.9; }
   .card { grid-column: span 4; }
 }
 
-/* =========================================================
-   PANELS + GAME LAYOUT (from gamestyles.css)
-   ========================================================= */
 .panel {
   background: var(--panel);
   border: 1px solid var(--border);
@@ -158,8 +140,7 @@ a:hover { opacity: 0.9; }
   overflow: hidden;
 }
 
-/* IMPORTANT: panel padding should NOT fight the home .section */
-.panel .section { padding: 18px; }         /* inner panel content padding */
+.panel .section { padding: 18px; }    
 
 .layout {
   display: grid;
@@ -211,7 +192,6 @@ a:hover { opacity: 0.9; }
   background: #231F20;
 }
 
-/* Loading */
 .loading {
   position: absolute;
   inset: 0;
@@ -245,7 +225,6 @@ a:hover { opacity: 0.9; }
   transition: width 120ms linear;
 }
 
-/* Mobile overlay */
 .mobile-overlay {
   display: none;
   position: absolute;
@@ -274,7 +253,6 @@ a:hover { opacity: 0.9; }
   .mobile-overlay { display: flex; }
 }
 
-/* Fullscreen mode */
 body.is-fs { padding: 0; }
 body.is-fs h1,
 body.is-fs p,
@@ -302,7 +280,6 @@ body.is-fs #unity-canvas {
   max-height: 100%;
 }
 
-/* Fullscreen icon */
 .fs-btn {
   position: absolute;
   right: 10px;
@@ -322,14 +299,12 @@ body.is-fs #unity-canvas {
 .fs-btn:hover { background: rgba(0, 0, 0, 0.6); }
 .fs-btn:active { transform: translateY(1px); }
 
-/* Footer */
 .footer {
   color: var(--muted);
   padding: 26px 0 50px;
   font-size: 13px;
 }
 
-/* DETAILS PAGE SPEC GRID (if you use the .spec approach) */
 #details.details { padding: 24px; }
 #details.details .spec {
   margin-top: 16px;
@@ -361,4 +336,25 @@ body.is-fs #unity-canvas {
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-top: 10px;
+}
+
+.bullets { margin: 10px 0 0 18px; padding-left: 18px; }
+.bullets li { margin: 6px 0; }
+
+.code {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  overflow: auto;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.media {
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.25);
 }
