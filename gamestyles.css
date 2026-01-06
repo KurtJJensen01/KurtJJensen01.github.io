@@ -301,51 +301,64 @@ body.is-fs #unity-canvas {
   font-size: 13px;
 }
 
-/* Key/Value “spec sheet” */
-.kv {
-  margin: 14px 0 0;
-  padding: 14px 0 0;
-  border-top: 1px solid var(--border);
+/* DETAILS PANEL: make padding unavoidable */
+#details.details {
+  padding: 24px;                 
 }
 
-/* reset default DL spacing */
-.kv, .kv dt, .kv dd { margin: 0; padding: 0; }
+/* Headings spacing */
+#details.details h2 {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
 
-.kv-row {
+#details.details h2:not(:first-child) {
+  margin-top: 22px;
+}
+
+/* Bullets spacing */
+#details.details .bullets {
+  margin: 10px 0 0 18px;
+}
+
+#details.details .bullets li {
+  margin: 6px 0;
+}
+
+/* SPEC GRID (replaces kv) */
+#details.details .spec {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: grid;
+  gap: 10px;
+}
+
+#details.details .spec-row {
   display: grid;
   grid-template-columns: 110px 1fr;
   gap: 12px;
-  padding: 7px 0;
+  align-items: start;
 }
 
-.kv dt {
+#details.details .spec-label {
   color: var(--muted);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.kv dd {
+#details.details .spec-value {
   color: var(--text);
   font-size: 14px;
 }
 
-/* Details panel typography */
-#details .section {
-  padding: 22px;
-}
-
-#details h2 {
-  margin: 0 0 10px;
-  font-size: 20px;
-}
-
-#details h2:not(:first-child) {
-  margin-top: 18px;
-}
-
-#details p {
-  margin: 0 0 10px;
-  color: var(--muted);
+/* Links row */
+#details.details .link-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 10px;
 }
