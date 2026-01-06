@@ -112,6 +112,7 @@ a:hover { opacity: 0.9; }
   grid-template-columns: 1.4fr 0.9fr;
   gap: 16px;
   padding: 18px 0 26px;
+  align-items: start;
 }
 
 @media (max-width: 900px) {
@@ -298,4 +299,51 @@ body.is-fs #unity-canvas {
   color: var(--muted);
   padding: 26px 0 40px;
   font-size: 13px;
+}
+
+/* Key/Value list (Role, Tech, Build, Focus) */
+.kv {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 10px 14px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.kv strong,
+.kv span {
+  display: block;
+}
+
+.kv strong {
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.kv span {
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* Details panel typography */
+#details .section {
+  padding: 18px;
+}
+
+#details h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+#details h2:not(:first-child) {
+  margin-top: 18px;
+}
+
+#details p {
+  margin: 0 0 10px;
+  color: var(--muted);
 }
