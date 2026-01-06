@@ -5,44 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unity WebGL Player | Silver Night</title>
-
-    <style>
-      body {
-        margin: 0;
-        padding: 16px;
-        background: #111;
-        color: #fff;
-        font-family: Arial, sans-serif;
-      }
-
-      /* Center the game and allow the page to have other content */
-      .game-shell {
-        max-width: 1920px;
-        margin: 0 auto;
-      }
-
-      /* Responsive frame that preserves 16:9.
-         It will display at full available width up to 1920,
-         and scale down on mobile so the whole menu is visible. */
-      .game-frame {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        background: #231F20;
-        overflow: hidden;
-      }
-
-      #unity-canvas {
-        width: 100%;
-        height: 100%;
-        display: block;
-        background: #231F20;
-      }
-
-      /* Optional: on small screens, prevent “trying to play” and let scrolling work */
-      @media (max-width: 768px) {
-        #unity-canvas { pointer-events: none; }
-      }
-    </style>
+    <link rel="stylesheet" href="/gamestyles.css" />
   </head>
 
   <body>
