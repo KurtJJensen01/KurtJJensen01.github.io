@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Silver Night | Kurt Jensen</title>
     <meta
-    name="description"
-    content="Silver Night is a 2D Unity game featuring tight movement, collision systems, and gameplay logic — playable in browser via WebGL."
+      name="description"
+      content="Silver Night is a 2D Unity game featuring tight movement, collision systems, and gameplay logic — playable in browser via WebGL."
     />
-    <!-- <link rel="stylesheet" href="/styles.css" /> -->
     <link rel="stylesheet" href="/gamestyles.css" />
   </head>
 
@@ -37,7 +36,6 @@
 
         <div class="hero-actions">
           <a class="btn" href="#play">Play below</a>
-          <!-- Update these links -->
           <a class="btn ghost" href="YOUR_REPO_URL" target="_blank" rel="noreferrer">GitHub Repo</a>
           <a class="btn ghost" href="YOUR_GAMEPLAY_VIDEO_URL" target="_blank" rel="noreferrer">Gameplay Video</a>
         </div>
@@ -58,15 +56,6 @@
               <span>Play</span>
               <span class="hint">Desktop recommended • Mobile preview supported</span>
             </div>
-
-            <button class="btn small ghost" id="touchToggle" type="button">
-              Enable touch
-            </button>
-          </div>
-          <div style="margin: 10px 0 14px;">
-            <button id="fs-btn" style="padding:10px 14px; border-radius:10px; border:0; cursor:pointer;">
-              Full screen
-            </button>
           </div>
 
           <div class="game-shell">
@@ -90,11 +79,15 @@
                   <p>Play on desktop for full gameplay.</p>
                   <div style="margin-top:10px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
                     <a class="btn small" href="YOUR_GAMEPLAY_VIDEO_URL" target="_blank" rel="noreferrer">Watch Gameplay</a>
-                    <!-- Optional -->
-                    <!-- <a class="btn small ghost" href="YOUR_DOWNLOAD_URL" target="_blank" rel="noreferrer">Download (Windows)</a> -->
                   </div>
                 </div>
               </div>
+
+              <button id="fs-btn" class="fs-btn" type="button" aria-label="Full screen" title="Full screen">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path d="M7 3H3v4h2V5h2V3zm14 0h-4v2h2v2h2V3zM5 17H3v4h4v-2H5v-2zm16 0h-2v2h-2v2h4v-4z" fill="currentColor"/>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -117,7 +110,6 @@
             </div>
 
             <h2 style="margin-top: 18px;">Controls</h2>
-            <p>List your real controls here (example):</p>
             <ul class="bullets">
               <li>Move: WASD / Arrow keys</li>
               <li>Jump: Space</li>
@@ -133,35 +125,14 @@
         </aside>
       </section>
 
-      <div class="footer">
-        © <span id="year"></span> Kurt Jensen
-      </div>
+      <div class="footer">© <span id="year"></span> Kurt Jensen</div>
     </main>
 
-    <!-- Unity loader -->
     <script src="Build/Web html Build.loader.js"></script>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Mobile touch toggle: keep your default behavior, but let user enable interaction.
       const canvas = document.getElementById("unity-canvas");
-      const toggleBtn = document.getElementById("touchToggle");
-
-      function setTouch(on) {
-        canvas.setAttribute("data-touch", on ? "on" : "off");
-        toggleBtn.textContent = on ? "Disable touch" : "Enable touch";
-      }
-
-      // default: off
-      let touchOn = false;
-      setTouch(touchOn);
-
-      toggleBtn.addEventListener("click", () => {
-        touchOn = !touchOn;
-        setTouch(touchOn);
-      });
-
-      // Loading UI
       const loading = document.getElementById("loading");
       const barFill = document.getElementById("barFill");
 
@@ -175,13 +146,10 @@
           companyName: "Hockeykurt",
           productName: "Silver Night",
           productVersion: "1.0",
-
-          // Keep render at 1920x1080 even though CSS may scale it smaller
           matchWebGLToCanvasSize: false,
           devicePixelRatio: 1,
         },
         (progress) => {
-          // progress is 0..1
           barFill.style.width = Math.round(progress * 100) + "%";
         }
       )
@@ -196,22 +164,29 @@
             String(err) +
             "</pre></div>";
         });
-        const frameEl = document.querySelector(".game-frame");
-        const fsBtn = document.getElementById("fs-btn");
 
-        fsBtn.addEventListener("click", async () => {
+      // Fullscreen (YouTube-ish icon)
+      const frameEl = document.querySelector(".game-frame");
+      const fsBtn = document.getElementById("fs-btn");
+
+      fsBtn.addEventListener("click", async () => {
+        try {
           if (!document.fullscreenElement) {
             await frameEl.requestFullscreen();
           } else {
             await document.exitFullscreen();
           }
-        });
+        } catch (e) {
+          console.error("Fullscreen failed:", e);
+        }
+      });
 
-        document.addEventListener("fullscreenchange", () => {
-          const isFs = !!document.fullscreenElement;
-          document.body.classList.toggle("is-fs", isFs);
-          fsBtn.textContent = isFs ? "Exit full screen" : "Full screen";
-        });
+      document.addEventListener("fullscreenchange", () => {
+        const isFs = !!document.fullscreenElement;
+        document.body.classList.toggle("is-fs", isFs);
+        fsBtn.title = isFs ? "Exit full screen" : "Full screen";
+        fsBtn.setAttribute("aria-label", fsBtn.title);
+      });
     </script>
   </body>
 </html>
