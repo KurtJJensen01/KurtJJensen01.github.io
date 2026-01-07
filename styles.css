@@ -75,7 +75,7 @@ a:hover { opacity: 0.9; }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .hero { padding: 44px 0 18px; }
-.hero h1 { font-size: clamp(30px, 4vw, 46px); margin: 0 0 10px; }
+.hero h1 { font-size: clamp(30px, 4vw, 46px); margin: 0 0 6px; }
 .hero p { margin: 0 0 16px; color: var(--muted); max-width: 860px; }
 
 .sub { color: var(--muted); font-size: 18px; max-width: 750px; }
@@ -359,5 +359,29 @@ body.is-fs #unity-canvas {
   background: rgba(0,0,0,0.25);
 }
 
-.quick-facts-title { margin: 0 0 8px; }
-.quick-facts { margin: 0; padding-left: 18px; }
+.quick-facts-title {
+  margin: 14px 0 8px;               
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+ul.quick-facts {
+  margin: 0;                     
+  padding-left: 18px;            
+  display: grid;
+  gap: 6px;
+}
+
+ul.quick-facts li { margin: 0; }
+
+.hero h2 {
+  margin: 0 0 12px;                      
+  font-size: clamp(18px, 2.2vw, 26px);  
+  font-weight: 650;
+  color: var(--muted);
+  letter-spacing: 0.2px;
+}
+
