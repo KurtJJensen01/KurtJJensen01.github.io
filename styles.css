@@ -358,3 +358,6 @@ body.is-fs #unity-canvas {
   border: 1px solid var(--border);
   background: rgba(0,0,0,0.25);
 }
+
+.quick-facts-title { margin: 0 0 8px; }
+.quick-facts { margin: 0; padding-left: 18px; }
